@@ -9,12 +9,14 @@ public class CardModel
         public String name;
         public String number;
         public String email;
+        public int id;
 
-        public CardInfo(String name, String number, String email)
+        public CardInfo(String name, String number, String email, int id)
         {
             this.name = name;
             this.number = number;
             this.email = email;
+            this.id = id;
         }
     }
 
@@ -39,6 +41,8 @@ public class CardModel
 
     private void loadCards()
     {
-        cardList.add(new CardInfo("John Doe", "123-456-7890", "johndoe@email.com"));
+        cardList.add(new CardInfo("John Doe", "123-456-7890", "johndoe@email.com", 2345));
+        cardList.add(new CardInfo("Jimmy T", "098-765-4321", "JIMMY@email.com", 3456));
+        cardList.add(new CardInfo("SMITE Sunday", "867-5309", "jenny@email.com", 1234));
     }
 }
