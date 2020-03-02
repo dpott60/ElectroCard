@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity
 
         myContext = this;
 
-        Button viewcardsBTN = findViewById(R.id.viewcardsBTN);
+        Button viewCardsBTN = findViewById(R.id.viewcardsBTN);
 
-        viewcardsBTN.setOnClickListener(new View.OnClickListener() {
+        viewCardsBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
