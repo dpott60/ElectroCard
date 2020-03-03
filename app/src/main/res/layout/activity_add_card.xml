@@ -46,4 +46,27 @@
         android:text="Cancel"
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="645dp" />
+
+    <TextView
+        android:id="@+id/placeholderTV"
+        android:layout_width="379dp"
+        android:layout_height="213dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#A63434"
+        android:text="PLACEHOLDER FOR CARD VIEW"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <Button
+        android:id="@+id/findCardBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="60dp"
+        android:text="Find Card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editText"
+        tools:layout_editor_absoluteY="66dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
