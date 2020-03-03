@@ -16,8 +16,9 @@ public class ViewCardsActivity extends AppCompatActivity
 {
     private CardAdapter cardAdapter = null;
     private RecyclerView cardRecycler = null;
-    /*private Context myContext;
-    private CardModel model;
+    private Context myContext;
+
+    /*private CardModel model;
 
     public static final int EDIT_REQUEST = 1;
     public static final int GOOD_EDIT_RESULT = 0;
@@ -33,8 +34,8 @@ public class ViewCardsActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_cards);
 
-        /*myContext = this;
-        this.model = CardModel.getSingleton();*/
+        myContext = this;
+        //this.model = CardModel.getSingleton();
         cardAdapter = new CardAdapter();
         cardRecycler = findViewById(R.id.cardsRV);
         cardRecycler.setAdapter(cardAdapter);
@@ -60,6 +61,17 @@ public class ViewCardsActivity extends AppCompatActivity
                 startActivityForResult(ini, EDIT_REQUEST);
             }
         });*/
+
+        Button placeholderBTN = findViewById(R.id.placeholderBTN);
+        placeholderBTN.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent ini = new Intent(myContext, EditCardActivity.class);
+                startActivity(ini);
+            }
+        });
     }
 
     /*public void onActivityResult(int reqCode, int resCode, Intent ini)

@@ -26,6 +26,16 @@ public class MainActivity extends AppCompatActivity
 
         myContext = this;
 
+        Button savedCardsBTN = findViewById(R.id.savedcardsBTN);
+
+        savedCardsBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent ini = new Intent(myContext, ViewSavedCardsActivity.class);
+                startActivity(ini);
+            }
+        });
         Button viewCardsBTN = findViewById(R.id.viewcardsBTN);
 
         viewCardsBTN.setOnClickListener(new View.OnClickListener() {
