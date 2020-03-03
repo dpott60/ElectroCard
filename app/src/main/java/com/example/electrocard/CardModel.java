@@ -43,6 +43,6 @@ public class CardModel
     {
         cardList.add(new CardInfo("John Doe", "123-456-7890", "johndoe@email.com", 2345));
         cardList.add(new CardInfo("Jimmy T", "098-765-4321", "JIMMY@email.com", 3456));
-        cardList.add(new CardInfo("SMITE Sunday", "867-5309", "jenny@email.com", 1234));
+        cardList.add(new CardInfo("Jenny", "867-5309", "jenny@email.com", 1234));
     }
 }
