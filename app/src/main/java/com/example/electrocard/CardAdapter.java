@@ -42,6 +42,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         TextView numberTV = lin.findViewById(R.id.numberTV);
         TextView emailTV = lin.findViewById(R.id.emailTV);
         TextView shareTV = lin.findViewById(R.id.shareTV);
+
+        if (position == 0)
+        {
+            lin.setBackgroundResource(R.drawable.redback);
+        }
         nameTV.setText(model.cardList.get(position).name);
         numberTV.setText(model.cardList.get(position).number);
         emailTV.setText(model.cardList.get(position).email);
