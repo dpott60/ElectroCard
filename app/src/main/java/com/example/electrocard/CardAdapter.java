@@ -1,7 +1,11 @@
 package com.example.electrocard;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -50,6 +54,16 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     {
         LinearLayout lin = (LinearLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view, parent, false);
         CardViewHolder vh = new CardViewHolder(lin);
+        Button editBTN = lin.findViewById(R.id.editBTN);
+        editBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent ini = new Intent(ViewCardsActivity.myContext, EditCardActivity.class);
+                ViewCardsActivity.myContext.startActivity(ini);
+            }
+        });
+
         return vh;
     }
 

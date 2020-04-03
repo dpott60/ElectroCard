@@ -16,7 +16,7 @@ public class ViewCardsActivity extends AppCompatActivity
 {
     private CardAdapter cardAdapter = null;
     private RecyclerView cardRecycler = null;
-    private Context myContext;
+    public static Context myContext;
 
     /*private CardModel model;
 

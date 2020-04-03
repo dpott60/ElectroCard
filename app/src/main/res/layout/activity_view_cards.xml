@@ -27,12 +27,4 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 
-    <Button
-        android:id="@+id/placeholderBTN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit Placeholder"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="618dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
