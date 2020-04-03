@@ -42,9 +42,11 @@ public class LoginActivity extends AppCompatActivity
                 try{
                     username = usernameET.getText().toString();
                     password = passwordET.getText().toString();
-                    //if account verified
-                    Intent ini = new Intent(myContext, MainActivity.class);
-                    startActivity(ini);
+                    if (username != null && password != null) {
+                        Intent ini = new Intent(myContext, MainActivity.class);
+                        startActivity(ini);
+                    }
+
                 } catch (Error e) {
                     Log.d("Error", "Invalid username/password");
                 }
