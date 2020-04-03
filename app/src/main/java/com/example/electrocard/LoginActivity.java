@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity
             }
         });
 
-        Button phloginBTN = findViewById(R.id.phloginBTN);
+        Button phloginBTN = findViewById(R.id.loginBTN);
         phloginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

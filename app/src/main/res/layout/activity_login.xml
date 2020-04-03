@@ -8,7 +8,7 @@
     tools:context=".LoginActivity">
 
     <Button
-        android:id="@+id/phloginBTN"
+        android:id="@+id/loginBTN"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phloginBTN" />
+        app:layout_constraintTop_toBottomOf="@+id/loginBTN" />
 
     <TextView
         android:id="@+id/usernameTV"
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Type in your password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

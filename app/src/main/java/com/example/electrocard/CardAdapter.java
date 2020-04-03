@@ -1,6 +1,5 @@
 package com.example.electrocard;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
