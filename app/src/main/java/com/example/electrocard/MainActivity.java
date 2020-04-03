@@ -46,16 +46,5 @@ public class MainActivity extends AppCompatActivity
                 startActivity(ini);
             }
         });
-
-        Button phloginBTN = findViewById(R.id.phloginBTN);
-
-        phloginBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Intent ini = new Intent(myContext, LoginActivity.class);
-                startActivity(ini);
-            }
-        });
     }
 }
