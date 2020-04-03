@@ -91,4 +91,8 @@ public class ViewCardsActivity extends AppCompatActivity
             }
         }
     }*/
+    public Context getMyContext()
+    {
+        return myContext;
+    }
 }
