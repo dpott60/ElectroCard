@@ -61,17 +61,6 @@ public class ViewCardsActivity extends AppCompatActivity
                 startActivityForResult(ini, EDIT_REQUEST);
             }
         });*/
-
-        Button placeholderBTN = findViewById(R.id.placeholderBTN);
-        placeholderBTN.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent ini = new Intent(myContext, EditCardActivity.class);
-                startActivity(ini);
-            }
-        });
     }
 
     /*public void onActivityResult(int reqCode, int resCode, Intent ini)
