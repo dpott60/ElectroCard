@@ -42,6 +42,15 @@ public class ViewCardsActivity extends AppCompatActivity
         LinearLayoutManager myManager = new LinearLayoutManager(this);
         cardRecycler.setLayoutManager(myManager);
 
+        Button backBTN = findViewById(R.id.backBTN);
+        backBTN.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent ini = new Intent(myContext, MainActivity.class);
+               startActivity(ini);
+           }
+       });
+
         /*nameTV = findViewById(R.id.nameTV);
         numberTV = findViewById(R.id.numberTV);
         emailTV = findViewById(R.id.emailTV);
