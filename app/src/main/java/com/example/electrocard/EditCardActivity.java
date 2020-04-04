@@ -26,15 +26,15 @@ public class EditCardActivity extends AppCompatActivity
         myContext = this;
 
         Intent ini = getIntent();
-        TextView nameTV = findViewById(R.id.nameTV);
-        TextView numberTV = findViewById(R.id.numberTV);
-        TextView emailTV = findViewById(R.id.emailTV);
+        TextView nameET = findViewById(R.id.nameET);
+        TextView numberET = findViewById(R.id.numberET);
+        TextView emailET = findViewById(R.id.emailET);
         LinearLayout lin = findViewById(R.id.editcardLIN);
 
         lin.setBackgroundResource(ini.getIntExtra(BG_KEY, R.drawable.back));
-        nameTV.setText(ini.getStringExtra(NAME_KEY));
-        numberTV.setText(ini.getStringExtra(PHONE_KEY));
-        emailTV.setText(ini.getStringExtra(EMAIL_KEY));
+        nameET.setText(ini.getStringExtra(NAME_KEY));
+        numberET.setText(ini.getStringExtra(PHONE_KEY));
+        emailET.setText(ini.getStringExtra(EMAIL_KEY));
 
 
         Button cancelEditBTN = findViewById(R.id.cancelEditBTN);
