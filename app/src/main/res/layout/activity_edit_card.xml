@@ -53,25 +53,14 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="484dp"
         android:layout_marginEnd="239dp"
+        android:layout_marginBottom="50dp"
         android:text="Save Card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/themeBTN"
-        android:layout_width="203dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="406dp"
-        android:layout_marginEnd="104dp"
-        android:layout_marginBottom="91dp"
-        android:text="Theme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/editcardtitleTV"
@@ -95,22 +84,8 @@
         android:layout_marginStart="267dp"
         android:layout_marginTop="484dp"
         android:layout_marginEnd="56dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="50dp"
         android:text="Cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/displayBTN"
-        android:layout_width="203dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="350dp"
-        android:layout_marginEnd="104dp"
-        android:layout_marginBottom="147dp"
-        android:text="Display Card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,14 +96,16 @@
         android:layout_width="203dp"
         android:layout_height="40dp"
         android:layout_marginStart="104dp"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="104dp"
-        android:layout_marginBottom="207dp"
+        android:layout_marginBottom="175dp"
         android:text="Color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/optionsBTN"
@@ -137,7 +114,7 @@
         android:layout_marginStart="104dp"
         android:layout_marginTop="230dp"
         android:layout_marginEnd="104dp"
-        android:layout_marginBottom="267dp"
+        android:layout_marginBottom="225dp"
         android:text="Options"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
