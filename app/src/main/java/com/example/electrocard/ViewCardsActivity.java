@@ -16,7 +16,6 @@ public class ViewCardsActivity extends AppCompatActivity
 {
     private CardAdapter cardAdapter = null;
     private RecyclerView cardRecycler = null;
-    public static Context myContext;
 
     /*private CardModel model;
 
@@ -33,8 +32,7 @@ public class ViewCardsActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_cards);
-
-        myContext = this;
+        
         //this.model = CardModel.getSingleton();
         cardAdapter = new CardAdapter();
         cardRecycler = findViewById(R.id.cardsRV);
@@ -80,8 +78,4 @@ public class ViewCardsActivity extends AppCompatActivity
             }
         }
     }*/
-    public Context getMyContext()
-    {
-        return myContext;
-    }
 }
