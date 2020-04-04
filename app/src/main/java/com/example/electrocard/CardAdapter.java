@@ -43,14 +43,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         TextView shareTV = lin.findViewById(R.id.shareTV);
 
         lin.setBackgroundResource(model.cardList.get(position).background);
-        nameTV.setText(model.cardList.get(position).name);
+        nameTV.setText(model.cardList.get(position).fName + " " + model.cardList.get(position).lName);
         numberTV.setText(model.cardList.get(position).number);
         emailTV.setText(model.cardList.get(position).email);
         shareTV.setText("Share: ID - " + model.cardList.get(position).id);
 
 
         final Intent ini = new Intent(ViewCardsActivity.myContext, EditCardActivity.class);
-        ini.putExtra(EditCardActivity.NAME_KEY, model.cardList.get(position).name);
+        ini.putExtra(EditCardActivity.NAME_KEY, model.cardList.get(position).fName + " " + model.cardList.get(position).lName);
         ini.putExtra(EditCardActivity.PHONE_KEY, model.cardList.get(position).number);
         ini.putExtra(EditCardActivity.EMAIL_KEY, model.cardList.get(position).email);
 
