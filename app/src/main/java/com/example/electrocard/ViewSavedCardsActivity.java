@@ -18,8 +18,9 @@ public class ViewSavedCardsActivity extends AppCompatActivity
         setContentView(R.layout.activity_view_saved_cards);
         myContext = this;
 
-        Button addCardBTN = findViewById(R.id.addCardBTN);
+        // NEED TO ADD THE CARD VIEW HERE IN ORDER TO ONLY VIEW THE CARDS RETURNED FROM THE QUERY
 
+        Button addCardBTN = findViewById(R.id.addCardBTN);
         addCardBTN.setOnClickListener(new View.OnClickListener()
         {
             @Override

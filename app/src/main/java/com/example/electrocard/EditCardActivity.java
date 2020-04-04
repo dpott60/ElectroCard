@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class EditCardActivity extends AppCompatActivity
@@ -14,6 +15,7 @@ public class EditCardActivity extends AppCompatActivity
     public static final String NAME_KEY = "name";
     public static final String PHONE_KEY = "number";
     public static final String EMAIL_KEY = "email";
+    public static final String BG_KEY = "background";
     private Context myContext;
 
     @Override
@@ -27,7 +29,9 @@ public class EditCardActivity extends AppCompatActivity
         TextView nameTV = findViewById(R.id.nameTV);
         TextView numberTV = findViewById(R.id.numberTV);
         TextView emailTV = findViewById(R.id.emailTV);
+        LinearLayout lin = findViewById(R.id.editcardLIN);
 
+        lin.setBackgroundResource(ini.getIntExtra(BG_KEY, R.drawable.back));
         nameTV.setText(ini.getStringExtra(NAME_KEY));
         numberTV.setText(ini.getStringExtra(PHONE_KEY));
         emailTV.setText(ini.getStringExtra(EMAIL_KEY));

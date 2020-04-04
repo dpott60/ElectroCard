@@ -50,6 +50,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
 
         final Intent ini = new Intent(ViewCardsActivity.myContext, EditCardActivity.class);
+        ini.putExtra(EditCardActivity.BG_KEY, model.cardList.get(position).background);
         ini.putExtra(EditCardActivity.NAME_KEY, model.cardList.get(position).fName + " " + model.cardList.get(position).lName);
         ini.putExtra(EditCardActivity.PHONE_KEY, model.cardList.get(position).number);
         ini.putExtra(EditCardActivity.EMAIL_KEY, model.cardList.get(position).email);
