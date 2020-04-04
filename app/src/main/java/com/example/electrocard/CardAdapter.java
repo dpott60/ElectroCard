@@ -1,6 +1,5 @@
 package com.example.electrocard;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,14 +42,28 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         TextView emailTV = lin.findViewById(R.id.emailTV);
         TextView shareTV = lin.findViewById(R.id.shareTV);
 
-        if (position == 0)
-        {
-            lin.setBackgroundResource(R.drawable.redback);
-        }
+        lin.setBackgroundResource(model.cardList.get(position).background);
         nameTV.setText(model.cardList.get(position).name);
         numberTV.setText(model.cardList.get(position).number);
         emailTV.setText(model.cardList.get(position).email);
         shareTV.setText("Share: ID - " + model.cardList.get(position).id);
+
+
+        final Intent ini = new Intent(ViewCardsActivity.myContext, EditCardActivity.class);
+        ini.putExtra(EditCardActivity.NAME_KEY, model.cardList.get(position).name);
+        ini.putExtra(EditCardActivity.PHONE_KEY, model.cardList.get(position).number);
+        ini.putExtra(EditCardActivity.EMAIL_KEY, model.cardList.get(position).email);
+
+        Button editBTN = lin.findViewById(R.id.editBTN);
+        editBTN.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ViewCardsActivity.myContext.startActivity(ini);
+            }
+        });
+
     }
 
     @NonNull
@@ -59,16 +72,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     {
         LinearLayout lin = (LinearLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view, parent, false);
         CardViewHolder vh = new CardViewHolder(lin);
-        Button editBTN = lin.findViewById(R.id.editBTN);
-        editBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Intent ini = new Intent(ViewCardsActivity.myContext, EditCardActivity.class);
-                ViewCardsActivity.myContext.startActivity(ini);
-            }
-        });
-
         return vh;
     }
 
