@@ -27,12 +27,18 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText newUsernameET = findViewById(R.id.newUsernameET);
                 EditText newPasswordET = findViewById(R.id.newPasswordET);
+                EditText firstNameET = findViewById(R.id.firstNameET);
+                EditText lastNameET = findViewById(R.id.lastNameET);
                 String username;
                 String password;
+                String firstName;
+                String lastName;
                 try{
                     username = newUsernameET.getText().toString();
                     password = newPasswordET.getText().toString();
-                    if (username != null && password != null) {
+                    firstName = firstNameET.getText().toString();
+                    lastName = lastNameET.getText().toString();
+                    if (username != null && password != null && firstName != null && lastName != null) {
                         Intent ini = new Intent(myContext, MainActivity.class);
                         startActivity(ini);
                     }
