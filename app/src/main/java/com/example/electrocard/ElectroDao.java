@@ -22,8 +22,8 @@ public interface ElectroDao
     @Query("SELECT * FROM tblUser WHERE username = :username")
     List<User> getLoginUsers(String username);
 
-    @Query("SELECT * FROM tblUser WHERE userID = :lookFor")
-    List<User> findUserByID(String lookFor);
+    @Query("SELECT * FROM tblUser WHERE username = :lookFor")
+    List<User> findUserByUsername(String lookFor);
 
     @Update
     void updateUser(User user);

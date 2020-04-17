@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity
                 {
                     for (User user : userList)
                     {
-                        Log.d("LoginCheck", user.username + " " + user.password);
+                        Log.d("LoginCheck", user.username + " " + user.password + " " + user.userID);
                         if (password.equals(user.password))
                         {
                             loggedInUsername = user.username;
@@ -115,8 +115,8 @@ public class LoginActivity extends AppCompatActivity
 
                 if (db.electroDao().getAllUsers().isEmpty())
                 {
-                    db.electroDao().insertUser(new User(0001, "testuser", "pass123"));
-                    db.electroDao().insertUser(new User(0002, "admin", "pass"));
+                    db.electroDao().insertUser(new User("testuser", "pass123", "Test", "User"));
+                    db.electroDao().insertUser(new User("admin", "pass", "Admin", "User"));
                 }
             }
         }).start();
@@ -130,5 +130,13 @@ public class LoginActivity extends AppCompatActivity
     public static int getLoggedInUserID()
     {
         return loggedInUserID;
+    }
+    public static void setLoggedInUsername(String user)
+    {
+        loggedInUsername = user;
+    }
+    public static void setLoggedInUserID(int userID)
+    {
+        loggedInUserID = userID;
     }
 }

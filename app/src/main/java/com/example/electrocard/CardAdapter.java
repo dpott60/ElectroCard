@@ -1,7 +1,6 @@
 package com.example.electrocard;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,15 +43,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         TextView shareTV = lin.findViewById(R.id.shareTV);
 
         threadLoadCards(lin, nameTV, numberTV, emailTV, shareTV, position);
-
-        /*
-
-
-        final Intent ini = new Intent(ViewCardsActivity.myContext, EditCardActivity.class);
-        ini.putExtra(EditCardActivity.BG_KEY, model.cardList.get(position).backgroundID);
-        ini.putExtra(EditCardActivity.NAME_KEY, model.cardList.get(position).firstName + " " + model.cardList.get(position).lastName);
-        ini.putExtra(EditCardActivity.PHONE_KEY, model.cardList.get(position).phoneNumber);
-        ini.putExtra(EditCardActivity.EMAIL_KEY, model.cardList.get(position).emailAddress);*/
     }
 
     @NonNull

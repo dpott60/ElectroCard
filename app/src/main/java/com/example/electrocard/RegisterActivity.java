@@ -10,14 +10,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class RegisterActivity extends AppCompatActivity {
+import java.util.List;
 
+public class RegisterActivity extends AppCompatActivity
+{
     public Context myContext;
+    private ElectroDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        db = LoginActivity.getDB();
 
         myContext = this;
 
@@ -29,24 +33,39 @@ public class RegisterActivity extends AppCompatActivity {
                 EditText newPasswordET = findViewById(R.id.newPasswordET);
                 EditText firstNameET = findViewById(R.id.firstNameET);
                 EditText lastNameET = findViewById(R.id.lastNameET);
-                String username;
-                String password;
-                String firstName;
-                String lastName;
-                try{
-                    username = newUsernameET.getText().toString();
-                    password = newPasswordET.getText().toString();
-                    firstName = firstNameET.getText().toString();
-                    lastName = lastNameET.getText().toString();
-                    if (username != null && password != null && firstName != null && lastName != null) {
-                        Intent ini = new Intent(myContext, MainActivity.class);
-                        startActivity(ini);
-                    }
+                String username = newUsernameET.getText().toString();
+                String password = newPasswordET.getText().toString();
+                String firstName = firstNameET.getText().toString();
+                String lastName = lastNameET.getText().toString();
 
-                } catch (Error e) {
-                    Log.d("Error", "Invalid username/password");
-                }
+                threadCreateUser(username, password, firstName, lastName);
             }
         });
+    }
+    private void threadCreateUser(final String username, final String password, final String firstName, final String lastName)
+    {
+        new Thread(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                User register = new User(username, password, firstName, lastName);
+                List<User> checkUser = db.electroDao().findUserByUsername(username);
+
+                if(checkUser.isEmpty())
+                {
+                    db.electroDao().insertUser(register);
+                    Intent ini = new Intent(myContext, MainActivity.class);
+                    LoginActivity.setLoggedInUserID(register.userID);
+                    LoginActivity.setLoggedInUsername(username);
+                    startActivity(ini);
+                }
+                else
+                {
+                    Log.d("USER ALREADY IN DB", "User already created");
+                }
+
+            }
+        }).start();
     }
 }

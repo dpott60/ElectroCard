@@ -12,11 +12,14 @@ public class User
     int userID;
     String username;
     String password;
+    String firstName;
+    String lastName;
 
-    public User(int userID, String username, String password)
+    public User(String username, String password, String firstName, String lastName)
     {
-        this.userID = userID;
         this.username = username;
         this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 }
