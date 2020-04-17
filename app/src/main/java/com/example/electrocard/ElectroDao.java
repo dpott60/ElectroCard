@@ -2,7 +2,6 @@ package com.example.electrocard;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
-import androidx.room.Ignore;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -39,7 +38,7 @@ public interface ElectroDao
     List<Card> getAllCards();
 
     @Query("SELECT * FROM tblCard WHERE cardID = :lookFor")
-    List<Card> findCardByID(String lookFor);
+    List<Card> findCardByID(int lookFor);
 
     @Update
     void updateCard(Card card);

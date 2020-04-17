@@ -19,16 +19,6 @@ public class ViewCardsActivity extends AppCompatActivity
     private RecyclerView cardRecycler = null;
     public static Context myContext;
 
-    /*private CardModel model;
-
-    public static final int EDIT_REQUEST = 1;
-    public static final int GOOD_EDIT_RESULT = 0;
-    public static final int BAD_EDIT_RESULT = -1;
-
-    private TextView nameTV;
-    private TextView numberTV;
-    private TextView emailTV;*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -36,7 +26,6 @@ public class ViewCardsActivity extends AppCompatActivity
         setContentView(R.layout.activity_view_cards);
 
         myContext = this;
-        //this.model = CardModel.getSingleton();
         cardAdapter = new CardAdapter();
         cardRecycler = findViewById(R.id.cardsRV);
         cardRecycler.setAdapter(cardAdapter);

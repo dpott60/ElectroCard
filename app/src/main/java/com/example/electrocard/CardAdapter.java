@@ -117,6 +117,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
                     ini.putExtra(EditCardActivity.NAME_KEY, cardsList.get(pos).firstName + " " + cardsList.get(pos).lastName);
                     ini.putExtra(EditCardActivity.PHONE_KEY, cardsList.get(pos).phoneNumber);
                     ini.putExtra(EditCardActivity.EMAIL_KEY, cardsList.get(pos).emailAddress);
+                    ini.putExtra(EditCardActivity.ID_KEY, cardsList.get(pos).cardID);
 
                     Button editBTN = lin.findViewById(R.id.editBTN);
                     editBTN.setOnClickListener(new View.OnClickListener()
