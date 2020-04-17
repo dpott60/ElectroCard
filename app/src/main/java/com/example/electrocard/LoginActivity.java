@@ -30,6 +30,8 @@ public class LoginActivity extends AppCompatActivity
         myContext = this;
         db = Room.databaseBuilder(getApplicationContext(), ElectroDatabase.class, "electro_db").build();
 
+        threadLoadUsers();
+
         Button registerBTN = findViewById(R.id.registerBTN);
         registerBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,11 +70,11 @@ public class LoginActivity extends AppCompatActivity
 
                 if (userList.isEmpty())
                 {
-                    Log.d("LoginCheck", "No users");
+                    Log.d("LoginCheck", "An account with that username does not exist.");
                     statusTV.post(new Runnable() {
                         @Override
                         public void run() {
-                            statusTV.setText("No users registered.");
+                            statusTV.setText("An account with that username does not exist.");
                         }
                     });
                 }
@@ -80,7 +82,8 @@ public class LoginActivity extends AppCompatActivity
                 {
                     for (User user : userList)
                     {
-                        if (user.password == password)
+                        Log.d("LoginCheck", user.username + " " + user.password);
+                        if (password.equals(user.password))
                         {
                             loggedInUsername = user.username;
                             loggedInUserID = user.userID;
@@ -91,11 +94,32 @@ public class LoginActivity extends AppCompatActivity
                         else
                         {
                             Log.d("LoginCheck", "Can't find user or pass");
-                            statusTV.setText("Invalid Username/Password");
+                            statusTV.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    statusTV.setText("Invalid Username/Password");
+                                }
+                            });
                         }
                     }
                 }
             }
         }).start();
+    }
+
+    private void threadLoadUsers()
+    {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                if (db.electroDao().getAllUsers().isEmpty())
+                {
+                    db.electroDao().insertUser(new User(0001, "testuser", "pass123"));
+                    db.electroDao().insertUser(new User(0002, "admin", "pass"));
+                }
+            }
+        }).start();
+        //cardList.add(new CardInfo("Jenny", "", "867-5309", "jenny@email.com", 1234, R.drawable.blueback));
     }
 }
