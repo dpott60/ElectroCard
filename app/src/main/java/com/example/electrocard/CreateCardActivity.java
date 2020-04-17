@@ -99,6 +99,7 @@ public class CreateCardActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 threadCreateCard();
+
                 Intent ini = new Intent(myContext, ViewCardsActivity.class);
                 startActivity(ini);
                 /*new Thread(new Runnable() {
@@ -125,7 +126,16 @@ public class CreateCardActivity extends AppCompatActivity
                     checkID = LoginActivity.getDB().electroDao().findCardByID(randID);
                 }
                 String[] nameSplit = nameET.getText().toString().split(" ");
-                LoginActivity.getDB().electroDao().insertCard(new Card(randID, LoginActivity.getLoggedInUserID(), nameSplit[0], nameSplit[1], numberET.getText().toString(), emailET.getText().toString(), newBackground));
+                final Card newCard = new Card(randID, LoginActivity.getLoggedInUserID(), nameSplit[0], nameSplit[1], numberET.getText().toString(), emailET.getText().toString(), newBackground);
+                LoginActivity.getDB().electroDao().insertCard(newCard);
+
+                lin.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        CardModel.getSingleton().dbCards.add(newCard);
+                        ViewCardsActivity.notifyCardAdded(CardModel.getSingleton().dbCards.size() - 1);
+                    }
+                });
             }
         }).start();
     }

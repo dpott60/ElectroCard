@@ -18,7 +18,7 @@ import java.util.List;
 public class ViewCardsActivity extends AppCompatActivity
 {
     public static CardAdapter cardAdapter = null;
-    private static RecyclerView cardRecycler = null;
+    public static RecyclerView cardRecycler = null;
     public static Context myContext;
 
     @Override
@@ -55,12 +55,9 @@ public class ViewCardsActivity extends AppCompatActivity
     public static void notifyCardRemoved(int pos)
     {
         cardAdapter.notifyItemRemoved(pos);
-        cardRecycler.invalidate();
-        cardRecycler.removeViewAt(pos);
-        CardAdapter.decrementPosition();
     }
     public static void notifyCardAdded(int pos)
     {
-        ViewCardsActivity.cardAdapter.notifyItemInserted(pos);
+        cardAdapter.notifyItemInserted(pos);
     }
 }
