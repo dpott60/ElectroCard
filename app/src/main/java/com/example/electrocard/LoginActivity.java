@@ -120,7 +120,6 @@ public class LoginActivity extends AppCompatActivity
                 }
             }
         }).start();
-        //cardList.add(new CardInfo("Jenny", "", "867-5309", "jenny@email.com", 1234, R.drawable.blueback));
     }
 
     public static String getLoggedInUsername()
