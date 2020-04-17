@@ -37,6 +37,9 @@ public interface ElectroDao
     @Query("SELECT * FROM tblCard")
     List<Card> getAllCards();
 
+    @Query("SELECT * FROM tblCard WHERE userCreatorID = :loggedID")
+    List<Card> getUserCards(int loggedID);
+
     @Query("SELECT * FROM tblCard WHERE cardID = :lookFor")
     List<Card> findCardByID(int lookFor);
 

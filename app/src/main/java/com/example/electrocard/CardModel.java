@@ -10,7 +10,7 @@ public class CardModel
 
     private CardModel()
     {
-        threadGetAllCards();
+        threadGetUserCards();
         threadPlaceholderCards();
     }
 
@@ -41,12 +41,12 @@ public class CardModel
         }).start();
     }
 
-    public void threadGetAllCards()
+    public void threadGetUserCards()
     {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                dbCards = db.electroDao().getAllCards();
+                dbCards = db.electroDao().getUserCards(LoginActivity.getLoggedInUserID());
             }
         }).start();
     }
