@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -63,6 +64,13 @@ public class RegisterActivity extends AppCompatActivity
                 else
                 {
                     Log.d("USER ALREADY IN DB", "User already created");
+                    final TextView checkTV = findViewById(R.id.checkTV);
+                    checkTV.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            checkTV.setText("Username already exists!");
+                        }
+                    });
                 }
 
             }
