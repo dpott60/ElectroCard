@@ -45,11 +45,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
         threadLoadCards(lin, nameTV, numberTV, emailTV, shareTV, position);
 
-        /*lin.setBackgroundResource(model.cardList.get(position).backgroundID);
-        nameTV.setText(model.cardList.get(position).firstName + " " + model.cardList.get(position).lastName);
-        numberTV.setText(model.cardList.get(position).phoneNumber);
-        emailTV.setText(model.cardList.get(position).emailAddress);
-        shareTV.setText("Share: ID - " + model.cardList.get(position).cardID);
+        /*
 
 
         final Intent ini = new Intent(ViewCardsActivity.myContext, EditCardActivity.class);
@@ -57,17 +53,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         ini.putExtra(EditCardActivity.NAME_KEY, model.cardList.get(position).firstName + " " + model.cardList.get(position).lastName);
         ini.putExtra(EditCardActivity.PHONE_KEY, model.cardList.get(position).phoneNumber);
         ini.putExtra(EditCardActivity.EMAIL_KEY, model.cardList.get(position).emailAddress);*/
-
-        Button editBTN = lin.findViewById(R.id.editBTN);
-        editBTN.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                //ViewCardsActivity.myContext.startActivity(ini);
-            }
-        });
-
     }
 
     @NonNull
@@ -136,11 +121,22 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
                             shareTV.setText("Share: ID - " + cardID);
                         }
                     });
-                    /*lin.setBackgroundResource(cardsList.get(i).backgroundID);
-                    nameTV.setText(cardsList.get(i).firstName + " " + cardsList.get(i).lastName);
-                    numberTV.setText(cardsList.get(i).phoneNumber);
-                    emailTV.setText(cardsList.get(i).emailAddress);
-                    shareTV.setText("Share: ID - " + cardsList.get(i).cardID);*/
+
+                    final Intent ini = new Intent(ViewCardsActivity.myContext, EditCardActivity.class);
+                    ini.putExtra(EditCardActivity.BG_KEY, cardsList.get(pos).backgroundID);
+                    ini.putExtra(EditCardActivity.NAME_KEY, cardsList.get(pos).firstName + " " + cardsList.get(pos).lastName);
+                    ini.putExtra(EditCardActivity.PHONE_KEY, cardsList.get(pos).phoneNumber);
+                    ini.putExtra(EditCardActivity.EMAIL_KEY, cardsList.get(pos).emailAddress);
+
+                    Button editBTN = lin.findViewById(R.id.editBTN);
+                    editBTN.setOnClickListener(new View.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(View v)
+                        {
+                            ViewCardsActivity.myContext.startActivity(ini);
+                        }
+                    });
                 }
             }
         }).start();

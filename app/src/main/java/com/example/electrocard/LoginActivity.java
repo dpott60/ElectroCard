@@ -18,8 +18,8 @@ public class LoginActivity extends AppCompatActivity
 {
     private static ElectroDatabase db;
     public Context myContext;
-    public String loggedInUsername;
-    public int loggedInUserID;
+    public static String loggedInUsername;
+    public static int loggedInUserID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -123,11 +123,11 @@ public class LoginActivity extends AppCompatActivity
         //cardList.add(new CardInfo("Jenny", "", "867-5309", "jenny@email.com", 1234, R.drawable.blueback));
     }
 
-    public String getLoggedInUsername()
+    public static String getLoggedInUsername()
     {
         return loggedInUsername;
     }
-    public int getLoggedInUserID()
+    public static int getLoggedInUserID()
     {
         return loggedInUserID;
     }

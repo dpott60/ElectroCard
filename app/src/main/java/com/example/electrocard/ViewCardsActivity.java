@@ -43,14 +43,6 @@ public class ViewCardsActivity extends AppCompatActivity
         LinearLayoutManager myManager = new LinearLayoutManager(this);
         cardRecycler.setLayoutManager(myManager);
 
-        /*LinearLayout lin = findViewById(R.id.cardviewLIN);
-        TextView nameTV = findViewById(R.id.nameTV);
-        TextView numberTV = findViewById(R.id.numberTV);
-        TextView emailTV = findViewById(R.id.emailTV);
-        TextView shareTV = findViewById(R.id.shareTV);
-        // NEED TO ADD THE CARD VIEW HERE IN ORDER TO ONLY VIEW THE CARDS RETURNED FROM THE QUERY
-        CardAdapter.threadLoadCards(lin, nameTV, numberTV, emailTV, shareTV, CardAdapter.getPosition());*/
-
         Button backBTN = findViewById(R.id.backBTN);
         backBTN.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -59,43 +51,5 @@ public class ViewCardsActivity extends AppCompatActivity
                startActivity(ini);
            }
        });
-
-        /*nameTV = findViewById(R.id.nameTV);
-        numberTV = findViewById(R.id.numberTV);
-        emailTV = findViewById(R.id.emailTV);
-
-        Button editBTN = findViewById(R.id.editBTN);
-
-        editBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Intent ini = new Intent (myContext, EditCardActivity.class);
-
-                ini.putExtra(EditCardActivity.NAME_KEY, nameTV.getText());
-                ini.putExtra(EditCardActivity.PHONE_KEY, numberTV.getText());
-                ini.putExtra(EditCardActivity.EMAIL_KEY, emailTV.getText());
-
-                startActivityForResult(ini, EDIT_REQUEST);
-            }
-        });*/
     }
-
-    /*public void onActivityResult(int reqCode, int resCode, Intent ini)
-    {
-        if (reqCode == EDIT_REQUEST){
-            if (resCode == GOOD_EDIT_RESULT)
-            {
-                // GOOD THINGS
-            }
-            else if (resCode == BAD_EDIT_RESULT)
-            {
-                // BAD THINGS HAVE HAPPENED, PANIC, DO NOTHING
-            }
-            else
-            {
-                Log.d("intent", "unknown result code " + resCode);
-            }
-        }
-    }*/
 }

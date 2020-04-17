@@ -1,34 +1,12 @@
 package com.example.electrocard;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CardModel
 {
     ElectroDatabase db = LoginActivity.getDB();
 
-    /*public static class CardInfo
-    {
-        public String fName;
-        public String lName;
-        public String number;
-        public String email;
-        public int id;
-        public int background;
-
-        public CardInfo(String fName, String lName, String number, String email, int id, int background)
-        {
-            this.fName = fName;
-            this.lName = lName;
-            this.number = number;
-            this.email = email;
-            this.id = id;
-            this.background = background;
-        }
-    }*/
-
     public List<Card> dbCards;
-    public ArrayList<Card> cardList;
 
     private CardModel()
     {
@@ -61,7 +39,6 @@ public class CardModel
                 }
             }
         }).start();
-        //cardList.add(new CardInfo("Jenny", "", "867-5309", "jenny@email.com", 1234, R.drawable.blueback));
     }
 
     public void threadGetAllCards()
