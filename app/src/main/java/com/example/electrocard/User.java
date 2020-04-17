@@ -14,6 +14,7 @@ public class User
     String password;
     String firstName;
     String lastName;
+    //int[] savedCards;
 
     public User(String username, String password, String firstName, String lastName)
     {
@@ -21,5 +22,6 @@ public class User
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        //this.savedCards = new int[100];
     }
 }
