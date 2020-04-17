@@ -151,14 +151,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
             public void run()
             {
                 List<Card> cardToDelete = LoginActivity.getDB().electroDao().findCardByID(id);
-                final List<Card> userCards = LoginActivity.getDB().electroDao().getUserCards(LoginActivity.loggedInUserID);
+                final List<Card> userCards = LoginActivity.getDB().electroDao().getUserCards(LoginActivity.getLoggedInUserID());
                 for (Card card : cardToDelete)
                 {
                     LoginActivity.getDB().electroDao().deleteCard(card);
                     lin.post(new Runnable() {
                         @Override
                         public void run() {
-                            ViewCardsActivity.notifyCardRemoved(cardPos, userCards);
+                            ViewCardsActivity.notifyCardRemoved(userCards.size() - 1);
                         }
                     });
                 }

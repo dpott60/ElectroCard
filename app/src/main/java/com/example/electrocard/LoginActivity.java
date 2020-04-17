@@ -18,8 +18,8 @@ public class LoginActivity extends AppCompatActivity
 {
     private static ElectroDatabase db;
     public Context myContext;
-    public static String loggedInUsername;
-    public static int loggedInUserID;
+    private static String loggedInUsername;
+    private static int loggedInUserID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

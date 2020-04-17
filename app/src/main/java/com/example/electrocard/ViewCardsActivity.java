@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ViewCardsActivity extends AppCompatActivity
 {
-    private static CardAdapter cardAdapter = null;
+    public static CardAdapter cardAdapter = null;
     private static RecyclerView cardRecycler = null;
     public static Context myContext;
 
@@ -36,19 +36,31 @@ public class ViewCardsActivity extends AppCompatActivity
 
         Button backBTN = findViewById(R.id.backBTN);
         backBTN.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent ini = new Intent(myContext, MainActivity.class);
-               startActivity(ini);
-           }
-       });
+            @Override
+            public void onClick(View v) {
+                Intent ini = new Intent(myContext, MainActivity.class);
+                startActivity(ini);
+            }
+        });
+
+        Button createCardBTN = findViewById(R.id.addCardBTN);
+        createCardBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ini = new Intent(myContext, CreateCardActivity.class);
+                startActivity(ini);
+            }
+        });
     }
-    public static void notifyCardRemoved(int pos, List<Card> cardlist)
+    public static void notifyCardRemoved(int pos)
     {
         cardAdapter.notifyItemRemoved(pos);
-        cardAdapter.notifyItemRangeChanged(pos, cardlist.size());
         cardRecycler.invalidate();
         cardRecycler.removeViewAt(pos);
         CardAdapter.decrementPosition();
+    }
+    public static void notifyCardAdded(int pos)
+    {
+        ViewCardsActivity.cardAdapter.notifyItemInserted(pos);
     }
 }
