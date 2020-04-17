@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CardModel
 {
-    ElectroDatabase db = MainActivity.getDB();
+    ElectroDatabase db = LoginActivity.getDB();
 
     /*public static class CardInfo
     {

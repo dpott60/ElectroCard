@@ -91,7 +91,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
             @Override
             public void run()
             {
-                List<Card> cardsList = MainActivity.getDB().electroDao().getAllCards();
+                List<Card> cardsList = LoginActivity.getDB().electroDao().getAllCards();
                 for (Card card : cardsList)
                 {
                     final int back = cardsList.get(pos).backgroundID;

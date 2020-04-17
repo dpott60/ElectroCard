@@ -2,6 +2,7 @@ package com.example.electrocard;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
+import androidx.room.Ignore;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -17,6 +18,9 @@ public interface ElectroDao
 
     @Query("SELECT * FROM tblUser")
     List<User> getAllUsers();
+
+    @Query("SELECT * FROM tblUser WHERE username = :username")
+    List<User> getLoginUsers(String username);
 
     @Query("SELECT * FROM tblUser WHERE userID = :lookFor")
     List<User> findUserByID(String lookFor);
