@@ -15,8 +15,6 @@ import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder>
 {
-    static int cardPOS;
-
     public static class CardViewHolder extends ViewHolder
     {
         public LinearLayout convenient;
@@ -44,8 +42,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         TextView numberTV = lin.findViewById(R.id.numberTV);
         TextView emailTV = lin.findViewById(R.id.emailTV);
         TextView shareTV = lin.findViewById(R.id.shareTV);
-
-        cardPOS = position;
 
         threadLoadCards(lin, nameTV, numberTV, emailTV, shareTV, position);
 
@@ -96,15 +92,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
             public void run()
             {
                 List<Card> cardsList = MainActivity.getDB().electroDao().getAllCards();
-                int position = pos;
-                while (position < cardsList.size())
+                for (Card card : cardsList)
                 {
-                    final int back = cardsList.get(position).backgroundID;
-                    final String firstName = cardsList.get(position).firstName;
-                    final String lastName = cardsList.get(position).lastName;
-                    final String phoneNumber = cardsList.get(position).phoneNumber;
-                    final String emailAddress = cardsList.get(position).emailAddress;
-                    final int cardID = cardsList.get(position).cardID;
+                    final int back = cardsList.get(pos).backgroundID;
+                    final String firstName = cardsList.get(pos).firstName;
+                    final String lastName = cardsList.get(pos).lastName;
+                    final String phoneNumber = cardsList.get(pos).phoneNumber;
+                    final String emailAddress = cardsList.get(pos).emailAddress;
+                    final int cardID = cardsList.get(pos).cardID;
 
                     lin.post(new Runnable() {
                         @Override
@@ -149,10 +144,5 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
                 }
             }
         }).start();
-    }
-
-    public static int getPosition()
-    {
-        return cardPOS;
     }
 }
