@@ -99,7 +99,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
                 int position = pos;
                 while (position < cardsList.size())
                 {
-                    Log.d("CARD OUTPUT", cardsList.get(position).firstName);
                     final int back = cardsList.get(position).backgroundID;
                     final String firstName = cardsList.get(position).firstName;
                     final String lastName = cardsList.get(position).lastName;
