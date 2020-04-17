@@ -38,8 +38,12 @@ There are 3 users in the app currently.
 * username: admin, password: pass, userid: 2
 * username: created, password: haha, userid: 3
 
+## Current Issues
+* App crashes on insert and delete of user cards
+* Currently no ability to save other user's cards
+
 ### APK
-???
+Not included. App not finished.
 
 ### Supported Devices
 This app supports devices running Android 5.0 Lollipop and above.
