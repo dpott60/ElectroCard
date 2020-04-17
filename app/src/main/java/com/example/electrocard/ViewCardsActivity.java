@@ -13,10 +13,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class ViewCardsActivity extends AppCompatActivity
 {
-    private CardAdapter cardAdapter = null;
-    private RecyclerView cardRecycler = null;
+    private static CardAdapter cardAdapter = null;
+    private static RecyclerView cardRecycler = null;
     public static Context myContext;
 
     @Override
@@ -40,5 +42,13 @@ public class ViewCardsActivity extends AppCompatActivity
                startActivity(ini);
            }
        });
+    }
+    public static void notifyCardRemoved(int pos, List<Card> cardlist)
+    {
+        cardAdapter.notifyItemRemoved(pos);
+        cardAdapter.notifyItemRangeChanged(pos, cardlist.size());
+        cardRecycler.invalidate();
+        cardRecycler.removeViewAt(pos);
+        CardAdapter.decrementPosition();
     }
 }

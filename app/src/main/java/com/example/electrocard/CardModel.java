@@ -10,6 +10,7 @@ public class CardModel
 
     private CardModel()
     {
+        //threadPlaceholderCards();
         threadGetUserCards();
         threadPlaceholderCards();
     }
