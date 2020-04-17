@@ -17,6 +17,9 @@ Basic menu displaying some user information such as your name and allowing you t
 ### Activity - View/Share Your Card
 Allows you to view created business cards and edit them or create new ones. From this view, you can also select to edit any of your cards. You will also have the option to share your cards, which will give you an ID for the card others input to save that card.
 
+### Activity - Add a new Card
+Allows you to create and add a new card.
+
 ### Activity - Edit Your Card
 Card customization. Color customization, decide content displayed such as name, email, phone number, occupation, workplace, photos etc.
 
@@ -28,3 +31,18 @@ Preview new cards you want to add from other users. Once an id is entered a prev
 
 ### Risky Components:
 Implementing a database to store all cards and user information, working with LinkedIn API to gather user information, Card customization as far as coloring, component movement and templates for different amounts of information displayed.
+
+### Test Credentials
+There are 3 users in the app currently.
+* username: testuser, password: pass123, userid: 1
+* username: admin, password: pass, userid: 2
+* username: created, password: haha, userid: 3
+
+### APK
+???
+
+### Supported Devices
+This app supports devices running Android 5.0 Lollipop and above.
+
+### Sequence information
+Not quite sure what this means.

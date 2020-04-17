@@ -101,13 +101,13 @@ public class CreateCardActivity extends AppCompatActivity
                 threadCreateCard();
                 Intent ini = new Intent(myContext, ViewCardsActivity.class);
                 startActivity(ini);
-                new Thread(new Runnable() {
+                /*new Thread(new Runnable() {
                     @Override
                     public void run() {
                         List<Card> numCards = LoginActivity.getDB().electroDao().getUserCards(LoginActivity.getLoggedInUserID());
                         ViewCardsActivity.notifyCardAdded(numCards.size() + 1);
                     }
-                }).start();
+                }).start();*/
             }
         });
     }
