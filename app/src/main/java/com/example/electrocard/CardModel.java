@@ -1,10 +1,13 @@
 package com.example.electrocard;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CardModel
 {
-    public static class CardInfo
+    ElectroDatabase db = MainActivity.getDB();
+
+    /*public static class CardInfo
     {
         public String fName;
         public String lName;
@@ -22,14 +25,15 @@ public class CardModel
             this.id = id;
             this.background = background;
         }
-    }
+    }*/
 
-    public ArrayList<CardInfo> cardList;
+    public List<Card> dbCards;
+    public ArrayList<Card> cardList;
 
     private CardModel()
     {
-        cardList = new ArrayList<CardInfo>();
-        loadCards();
+        threadLoadCards();
+        threadGetAllCards();
     }
 
     private static CardModel theModel = null;
@@ -43,10 +47,30 @@ public class CardModel
         return theModel;
     }
 
-    private void loadCards()
+    private void threadLoadCards()
     {
-        cardList.add(new CardInfo("John", "Doe", "123-456-7890", "johndoe@email.com", 2345, R.drawable.redback));
-        cardList.add(new CardInfo("Jimmy", "T", "098-765-4321", "JIMMY@email.com", 3456, R.drawable.greenback));
-        cardList.add(new CardInfo("Jenny", "", "867-5309", "jenny@email.com", 1234, R.drawable.blueback));
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                if (db.electroDao().getAllCards() == null)
+                {
+                    db.electroDao().insertCard(new Card(2345, 0001, "John", "Doe", "123-456-7890", "johndoe@email.com", R.drawable.redback));
+                    db.electroDao().insertCard(new Card(3456, 0001, "Jimmy", "T", "098-765-4321", "JIMMY@email.com", R.drawable.greenback));
+                    db.electroDao().insertCard(new Card(1234, 0001, "Jenny", "", "867-5309", "jenny@email.com", R.drawable.blueback));
+                }
+            }
+        }).start();
+        //cardList.add(new CardInfo("Jenny", "", "867-5309", "jenny@email.com", 1234, R.drawable.blueback));
+    }
+
+    public void threadGetAllCards()
+    {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                dbCards = db.electroDao().getAllCards();
+            }
+        }).start();
     }
 }

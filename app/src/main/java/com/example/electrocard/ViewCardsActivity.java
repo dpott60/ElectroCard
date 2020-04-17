@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ViewCardsActivity extends AppCompatActivity
@@ -41,6 +42,14 @@ public class ViewCardsActivity extends AppCompatActivity
         cardRecycler.setAdapter(cardAdapter);
         LinearLayoutManager myManager = new LinearLayoutManager(this);
         cardRecycler.setLayoutManager(myManager);
+
+        /*LinearLayout lin = findViewById(R.id.cardviewLIN);
+        TextView nameTV = findViewById(R.id.nameTV);
+        TextView numberTV = findViewById(R.id.numberTV);
+        TextView emailTV = findViewById(R.id.emailTV);
+        TextView shareTV = findViewById(R.id.shareTV);
+        // NEED TO ADD THE CARD VIEW HERE IN ORDER TO ONLY VIEW THE CARDS RETURNED FROM THE QUERY
+        CardAdapter.threadLoadCards(lin, nameTV, numberTV, emailTV, shareTV, CardAdapter.getPosition());*/
 
         Button backBTN = findViewById(R.id.backBTN);
         backBTN.setOnClickListener(new View.OnClickListener() {

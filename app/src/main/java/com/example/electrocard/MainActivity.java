@@ -1,22 +1,18 @@
 package com.example.electrocard;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GestureDetectorCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity
 {
+    private static ElectroDatabase db;
+
     public Context myContext;
     //testing to see if github works also
     @Override
@@ -26,6 +22,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         myContext = this;
+
+        db = Room.databaseBuilder(getApplicationContext(), ElectroDatabase.class, "electro_db").build();
 
         Button savedCardsBTN = findViewById(R.id.savedcardsBTN);
 
@@ -47,5 +45,9 @@ public class MainActivity extends AppCompatActivity
                 startActivity(ini);
             }
         });
+    }
+    public static ElectroDatabase getDB()
+    {
+        return db;
     }
 }

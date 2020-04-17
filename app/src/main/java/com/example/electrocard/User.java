@@ -12,5 +12,4 @@ public class User
     int userID;
     String username;
     String password;
-    int[] userCards;
 }
