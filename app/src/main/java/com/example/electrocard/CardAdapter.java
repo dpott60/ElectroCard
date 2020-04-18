@@ -43,7 +43,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CardViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull CardViewHolder holder, final int position)
     {
         lin = holder.convenient;
         nameTV = lin.findViewById(R.id.nameTV);
@@ -81,8 +81,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
             deleteBTN.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ViewHolder viewH = ViewCardsActivity.cardRecycler.getChildViewHolder(v);
-                    threadDeleteCard(model.dbCards.get(viewH.getAdapterPosition()).cardID);
+                    ViewHolder viewH = ViewCardsActivity.cardRecycler.findViewHolderForAdapterPosition(position);
+                    threadDeleteCard(model.dbCards.get(position).cardID);
                 }
             });
         //}
