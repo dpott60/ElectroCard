@@ -48,4 +48,18 @@ public interface ElectroDao
 
     @Delete
     void deleteCard(Card card);
+
+    // SavedCards DAO Starts Here!
+
+    @Insert
+    void saveCard(SavedCards card);
+
+    @Update
+    void updateSavedCard(SavedCards card);
+
+    @Delete
+    void deleteSavedCard(SavedCards card);
+
+    @Query("SELECT * FROM tblSavedCard, tblCard WHERE userID = :loggedID AND cardID = savedCardID")
+    List<Card> getSavedCards(int loggedID, int cardID);
 }
