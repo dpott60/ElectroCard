@@ -24,7 +24,7 @@
             android:id="@+id/nameET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name goes here"
+            android:hint="Name goes here"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -32,7 +32,7 @@
             android:id="@+id/numberET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Number goes here"
+            android:hint="Number goes here"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -40,7 +40,7 @@
             android:id="@+id/emailET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email goes here"
+            android:hint="Email goes here"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
