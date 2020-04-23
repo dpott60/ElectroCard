@@ -8,9 +8,9 @@ public class SavedCardModel {
     public List<Card> dbSavedCards;
 
     private SavedCardModel() {
-        threadPlaceHolderSavedCards();
-        threadGetSavedCards();
         //threadPlaceHolderSavedCards();
+        threadGetSavedCards();
+        threadPlaceHolderSavedCards();
     }
 
     private static SavedCardModel theModel = null;
