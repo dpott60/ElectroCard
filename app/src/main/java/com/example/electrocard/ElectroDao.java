@@ -61,5 +61,5 @@ public interface ElectroDao
     void deleteSavedCard(SavedCards card);
 
     @Query("SELECT * FROM tblSavedCard, tblCard WHERE userID = :loggedID AND cardID = savedCardID")
-    List<Card> getSavedCards(int loggedID, int cardID);
+    List<Card> getSavedCards(int loggedID);
 }

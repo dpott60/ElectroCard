@@ -7,18 +7,31 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import android.util.Log;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import java.util.List;
 
 public class ViewSavedCardsActivity extends AppCompatActivity
 {
-    private Context myContext;
+    public static SavedCardAdapter savedCardAdapter = null;
+    public static RecyclerView savedCardRecycler = null;
+    public static Context myContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_saved_cards);
-        myContext = this;
 
-        // NEED TO ADD THE CARD VIEW HERE IN ORDER TO ONLY VIEW THE CARDS RETURNED FROM THE QUERY
+        myContext = this;
+        savedCardAdapter = new SavedCardAdapter();
+        savedCardRecycler = findViewById(R.id.userSavedCardsRV);
+        savedCardRecycler.setAdapter(savedCardAdapter);
+        LinearLayoutManager myManager = new LinearLayoutManager(this);
+        savedCardRecycler.setLayoutManager(myManager);
 
         Button addCardBTN = findViewById(R.id.addCardBTN);
         addCardBTN.setOnClickListener(new View.OnClickListener()
@@ -31,4 +44,7 @@ public class ViewSavedCardsActivity extends AppCompatActivity
             }
         });
     }
+
+    public static void notifyCardRemoved(int pos) { savedCardAdapter.notifyItemRemoved(pos); }
+    public static void notifyCardAdded(int pos) { savedCardAdapter.notifyItemInserted(pos); }
 }

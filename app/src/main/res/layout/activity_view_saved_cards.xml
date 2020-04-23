@@ -38,18 +38,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/savedCardTV"
-        android:layout_width="295dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="93dp"
-        android:autoText="false"
-        android:background="#F80606"
-        android:text="Place Holder"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/userSavedCardsRV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:scrollbars="vertical"
+        android:scrollbarThumbVertical="@android:color/darker_gray"
+        android:scrollbarSize="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/savedcardstitleTV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,8 +11,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class AddCardActivity extends AppCompatActivity
@@ -32,9 +30,9 @@ public class AddCardActivity extends AppCompatActivity
 
         myContext = this;
 
-        nameTV = findViewById(R.id.nameTV);
-        numberTV = findViewById(R.id.numberTV);
-        emailTV = findViewById(R.id.emailTV);
+        nameTV = findViewById(R.id.savedNameTV);
+        numberTV = findViewById(R.id.savedNumberTV);
+        emailTV = findViewById(R.id.savedEmailTV);
         foundcardTV = findViewById(R.id.foundcardTV);
         lin = findViewById(R.id.cardviewLIN);
 

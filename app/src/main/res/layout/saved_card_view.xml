@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardviewLIN"
+    android:id="@+id/savedCardViewLIN"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/back"
-    android:orientation="vertical"
     android:paddingTop="15dp"
-    android:paddingBottom="15dp">
+    android:paddingBottom="15dp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/savedNameTV"
@@ -41,22 +41,6 @@
         app:columnCount="3"
         app:rowCount="1">
 
-        <Button
-            android:id="@+id/deleteCardBTN"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Delete"
-            app:layout_column="1"
-            app:layout_row="0" />
-
-        <Button
-            android:id="@+id/editBTN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Edit"
-            app:layout_column="0"
-            app:layout_row="0" />
-
         <TextView
             android:id="@+id/savedShareTV"
             android:layout_width="wrap_content"
@@ -65,5 +49,4 @@
             app:layout_column="2"
             app:layout_row="0" />
     </androidx.gridlayout.widget.GridLayout>
-
 </LinearLayout>

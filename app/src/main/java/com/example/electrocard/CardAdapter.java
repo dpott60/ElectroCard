@@ -1,6 +1,5 @@
 package com.example.electrocard;
 
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,10 +45,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     public void onBindViewHolder(@NonNull CardViewHolder holder, final int position)
     {
         lin = holder.convenient;
-        nameTV = lin.findViewById(R.id.nameTV);
-        numberTV = lin.findViewById(R.id.numberTV);
-        emailTV = lin.findViewById(R.id.emailTV);
-        shareTV = lin.findViewById(R.id.shareTV);
+        nameTV = lin.findViewById(R.id.savedNameTV);
+        numberTV = lin.findViewById(R.id.savedNumberTV);
+        emailTV = lin.findViewById(R.id.savedEmailTV);
+        shareTV = lin.findViewById(R.id.savedShareTV);
 
 
         threadLoadCards();
