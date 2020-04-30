@@ -97,15 +97,9 @@ public class SavedCardAdapter extends RecyclerView.Adapter<SavedCardAdapter.Save
             @Override
             public void run()
             {
-                List<Card> cardToDelete = LoginActivity.getDB().electroDao().findCardByID(id);
                 List<SavedCards> savedCardToDelete = LoginActivity.getDB().electroDao().findSavedCardByID(LoginActivity.getLoggedInUserID(), id);
-                SavedCards save = null;
                 for (SavedCards saved : savedCardToDelete){
-                    save = saved;
-                }
-                for (Card card : cardToDelete)
-                {
-                    LoginActivity.getDB().electroDao().deleteSavedCard(save);
+                    LoginActivity.getDB().electroDao().deleteSavedCard(saved);
                     SavedCardModel.getSingleton().dbSavedCards.remove(vh.getAdapterPosition());
                     ViewSavedCardsActivity.savedCardRecycler.post(new Runnable() {
                         @Override

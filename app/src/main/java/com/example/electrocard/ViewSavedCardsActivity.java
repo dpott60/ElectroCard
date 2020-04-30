@@ -37,8 +37,8 @@ public class ViewSavedCardsActivity extends AppCompatActivity
         backBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ini = new Intent(myContext, MainActivity.class);
-                startActivity(ini);
+                Intent intent = new Intent(myContext, MainActivity.class);
+                startActivity(intent);
             }
         });
 
