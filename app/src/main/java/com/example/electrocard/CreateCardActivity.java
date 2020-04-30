@@ -111,6 +111,15 @@ public class CreateCardActivity extends AppCompatActivity
                 }).start();*/
             }
         });
+
+        Button cancelBTN = findViewById(R.id.cancelCreateBTN);
+        cancelBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(myContext, ViewCardsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     public void threadCreateCard()
     {

@@ -53,6 +53,44 @@ public class AddCardActivity extends AppCompatActivity
                 startActivity(ini);
             }
         });
+
+        Button addBTN = findViewById(R.id.addCardBTN);
+        addBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveCard();
+                Intent ini = new Intent(myContext, ViewSavedCardsActivity.class);
+                startActivity(ini);
+            }
+        });
+    }
+
+    public void saveCard()
+    {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Card card = null;
+                EditText enteredidET = findViewById(R.id.enteredidET);
+                List<Card> foundCard = LoginActivity.getDB().electroDao().findCardByID(Integer.parseInt(enteredidET.getText().toString()));
+                while(foundCard.isEmpty() == false) {
+                    int x = 0;
+                    card = foundCard.get(0);
+                    x++;
+                }
+                final Card cardToSave = card;
+                final SavedCards savedCard = new SavedCards(LoginActivity.getLoggedInUserID(), cardToSave.cardID);
+                LoginActivity.getDB().electroDao().saveCard(savedCard);
+
+                lin.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        SavedCardModel.getSingleton().dbSavedCards.add(cardToSave);
+                        ViewSavedCardsActivity.notifyCardAdded(SavedCardModel.getSingleton().dbSavedCards.size() - 1);
+                    }
+                });
+            }
+        }).start();
     }
 
     public void threadFindCard()
