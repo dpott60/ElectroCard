@@ -62,4 +62,7 @@ public interface ElectroDao
 
     @Query("SELECT * FROM tblSavedCard, tblCard WHERE userID = :loggedID AND cardID = savedCardID")
     List<Card> getSavedCards(int loggedID);
+
+    @Query("SELECT * FROM tblSavedCard WHERE userID = :loggedID AND savedCardID = :savedID")
+    List<SavedCards> findSavedCardByID(int loggedID, int savedID);
 }

@@ -33,6 +33,15 @@ public class ViewSavedCardsActivity extends AppCompatActivity
         LinearLayoutManager myManager = new LinearLayoutManager(this);
         savedCardRecycler.setLayoutManager(myManager);
 
+        Button backBTN = findViewById(R.id.savedBackBTN);
+        backBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ini = new Intent(myContext, MainActivity.class);
+                startActivity(ini);
+            }
+        });
+
         Button addCardBTN = findViewById(R.id.addCardBTN);
         addCardBTN.setOnClickListener(new View.OnClickListener()
         {

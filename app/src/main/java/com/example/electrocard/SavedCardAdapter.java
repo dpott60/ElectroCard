@@ -2,7 +2,9 @@ package com.example.electrocard;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -54,6 +56,15 @@ public class SavedCardAdapter extends RecyclerView.Adapter<SavedCardAdapter.Save
         numberTV.setText(model.dbSavedCards.get(position).phoneNumber);
         emailTV.setText(model.dbSavedCards.get(position).emailAddress);
         shareTV.setText("Share - ID: " + model.dbSavedCards.get(position).cardID);
+
+        Button deleteBTN = vh.convenient.findViewById(R.id.deleteSavedCardBTN);
+        deleteBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ViewHolder viewHolder = ViewSavedCardsActivity.savedCardRecycler.findViewHolderForAdapterPosition(position);
+                threadDeleteCard(model.dbSavedCards.get(position).cardID);
+            }
+        });
     }
 
     @NonNull
@@ -76,6 +87,33 @@ public class SavedCardAdapter extends RecyclerView.Adapter<SavedCardAdapter.Save
             public void run() {
                 final List<Card> savedCardsList = LoginActivity.getDB().electroDao().getSavedCards(LoginActivity.getLoggedInUserID());
                 Log.d("Cardlist", " " + savedCardsList.size());
+            }
+        }).start();
+    }
+
+    public static void threadDeleteCard(final int id)
+    {
+        new Thread(new Runnable() {
+            @Override
+            public void run()
+            {
+                List<Card> cardToDelete = LoginActivity.getDB().electroDao().findCardByID(id);
+                List<SavedCards> savedCardToDelete = LoginActivity.getDB().electroDao().findSavedCardByID(LoginActivity.getLoggedInUserID(), id);
+                SavedCards save = null;
+                for (SavedCards saved : savedCardToDelete){
+                    save = saved;
+                }
+                for (Card card : cardToDelete)
+                {
+                    LoginActivity.getDB().electroDao().deleteSavedCard(save);
+                    SavedCardModel.getSingleton().dbSavedCards.remove(vh.getAdapterPosition());
+                    ViewSavedCardsActivity.savedCardRecycler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            ViewSavedCardsActivity.notifyCardRemoved(vh.getAdapterPosition());
+                        }
+                    });
+                }
             }
         }).start();
     }

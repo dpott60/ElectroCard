@@ -41,6 +41,12 @@
         app:columnCount="3"
         app:rowCount="1">
 
+        <Button
+            android:id="@+id/deleteSavedCardBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DELETE" />
+
         <TextView
             android:id="@+id/savedShareTV"
             android:layout_width="wrap_content"
